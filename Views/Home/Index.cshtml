@@ -1,0 +1,37 @@
+﻿<div class="container">
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Company</th>
+          <th>Ram</th>
+          <th>Hardisk</th>
+          <th>OS</th>
+          <th>Product Type</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach(var item in Model)
+        {
+          <tr>
+            <td><a asp-action="ViewItem" asp-controller="Store" asp-route-id="@item.Id">@item.Product_Name</a></td>
+            <td>@item.Company</td>
+            <td>@item.Ram</td>
+            <td><img src="~/Uploads/@item.Image" class="img-fluid" alt="NO IMAGE FOUND"></td>
+            <td>@item.Hardisk</td>
+            <td>@item.Os</td>
+            <td>@item.ProductType</td>
+            <td>@item.Description</td>
+            <td>
+              @Html.ActionLink("Edit", "AddIt", "Store", new { item.Id, item.Company, item.Ram, item.Product_Name, item.Description, item.ProductType }, new { @class = "btn btn-primary edit-link" })
+              @Html.ActionLink("Delete", "Deleteitem", "Store", new { item.Id }, new { @class = "btn btn-danger delete-link" })
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

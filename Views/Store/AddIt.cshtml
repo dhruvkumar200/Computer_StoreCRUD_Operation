@@ -1,0 +1,110 @@
+@model AddItem
+@{
+    ViewData["Title"] = "Registration";
+}
+<div><H1>Add Items</H1></div>
+@using (Html.BeginForm("AddInfo", "Store", FormMethod.Post, new {id="formRegistration",enctype="multipart/form-data"}))
+{
+   @Html.HiddenFor(x=>x.Id);
+<div class="form-group">
+   <label for="Product Name" class="col-md-3 control-label">Product Name</label>
+    <div class="col-md-9">
+   
+   @Html.TextBoxFor(x => x.Product_Name, new { @class = "form-control", placeholder = "Product Name" })
+   @Html.ValidationMessageFor(x => x.Product_Name)
+   </div>
+</div>
+<br />
+<div class="form-group">
+   <label for="Image" class="col-md-3 control-label">Image</label>
+<div class="col-md-9">
+   <input type="file" name="Image"/>
+   @* @Html.TextBoxFor(x => x.Image, "", new { @class = "form-control", placeholder = "Upload your image here" })
+     @Html.ValidationMessageFor(x => x.Image,"",new{@class="text-danger"}) *@
+</div>
+</div>
+<div class="form-group">
+   <label for="Company Name" class="col-md-3 control-label">Company Name</label>
+<div class="col-md-9">
+   @Html.TextBoxFor(x => x.Company, new { @class = "form-control", placeholder = "Company Name" })
+@Html.ValidationMessageFor(x => x.Company)
+</div>
+</div>
+<br />
+<div class="form-group">
+   <label for="img" class="col-md-3 control-label">Upload img</label>
+@* <div class="col-md-9">
+            <label for = "Image">Image</label>
+            <input type = "file" name = "Image" size = "35"/>
+            <br/>
+            <input type = "submit" value = "Upload" />
+   @Html.ValidationMessageFor(x => x.image)
+   </div> *@
+</div>
+<br />
+ <div class="form-group">
+   <label for="Ram" class="col-md-3 control-label">Ram</label>
+<div class="col-md-9">
+   
+   @Html.RadioButtonFor(m => m.Ram,"4Gb") 
+   @Html.Label("4Gb")
+   <br>
+   @Html.RadioButtonFor(m => m.Ram,"8Gb")
+   @Html.Label("8Gb")
+   <br>
+   @Html.RadioButtonFor(m => m.Ram,"12Gb")
+   @Html.Label("12Gb")
+   <br>
+   @Html.RadioButtonFor(m => m.Ram,"16Gb")
+   @Html.Label("16Gb")
+   <br>
+   @Html.RadioButtonFor(m => m.Ram,"32Gb")
+   @Html.Label("32Gb")
+</div>
+</div>
+<br />
+<div class="form-group">
+   <label for="Hardisk" class="col-md-3 control-label">Hardisk</label>
+<div class="col-md-9">
+   @Html.TextBoxFor(x => x.Hardisk, new { @class = "form-control", placeholder = "Hardisk" })
+   @Html.ValidationMessageFor(x => x.Hardisk)
+</div>
+</div>
+<br />
+<div class="form-group">
+   <label for="Contact" class="col-md-3 control-label">OS</label>
+<div class="col-md-9">
+@Html.DropDownListFor(m => m.OS, 
+            new SelectList(Enum.GetValues(typeof(Operating_system))), 
+            "Select OS")
+   @Html.ValidationMessageFor(x => x.OS)
+</div>
+</div>
+<br>
+<div class="form-group">
+   <label for="Contact" class="col-md-3 control-label">ProductType</label>
+<div class="col-md-9">
+   @Html.TextBoxFor(x => x.ProductType, new { @class = "form-control", placeholder = "Product Type" })
+   
+   @Html.ValidationMessageFor(x => x.ProductType)
+</div>
+</div>
+
+<div class="form-group">
+   <label for="Contact" class="col-md-3 control-label">Description</label>
+<div class="col-md-9">
+   @Html.TextAreaFor(x => x.Description, new { @class = "form-control", placeholder = "Description" })
+   @Html.ValidationMessageFor(x => x.Description)
+</div>
+</div>
+
+
+<div class="form-group">
+   <span id="spnMessage" class="text-danger">@TempData["Message"]</span>
+   <br />
+<div class="col-md-offset-3 col-md-9">
+   <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> Sign Up</button>
+   <span style="margin-left:8px;"></span>
+</div>
+</div>
+}
