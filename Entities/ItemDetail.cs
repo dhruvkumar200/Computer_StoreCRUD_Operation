@@ -7,11 +7,11 @@ public partial class ItemDetail
 {
     public int Id { get; set; }
 
-    public string? Product_Name { get; set; }
+    public string? ProductName { get; set; }
 
     public string? Company { get; set; }
 
-    public int? Ram { get; set; }
+    public string? Ram { get; set; }
 
     public string? Hardisk { get; set; }
 

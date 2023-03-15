@@ -9,7 +9,7 @@ namespace Computer_Store.Models
         }
         [Required]
 
-        public string? Product_Name{
+        public string? ProductName{
             get;
             set;
         }
@@ -19,7 +19,7 @@ namespace Computer_Store.Models
             set;
         }
         [Required]
-         public int Ram{
+         public string? Ram{
             get;
             set;
         }
@@ -38,10 +38,12 @@ namespace Computer_Store.Models
             get;
             set;
         }
+        [MaxLength(500)]
           public string? Description{
             get;
             set;
         }
+        [Required]
         public String? Image{
             get;
             set;
@@ -56,4 +58,5 @@ namespace Computer_Store.Models
             Mac,
             Linux    
         }
+         
 }

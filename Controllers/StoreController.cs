@@ -14,7 +14,12 @@ public class StoreController : Controller
     
         Environment = _environment;
     }
-    public IActionResult AddIt(int Id,AddItem addItem) 
+    public IActionResult AddIt() 
+    {
+       return View();
+    
+    }
+    public IActionResult Edit(int Id,AddItem addItem) 
     {
        return View(addItem);
     
@@ -66,7 +71,7 @@ public IActionResult ViewItem(int Id)
         {
             
             ItemDetail Item =new ItemDetail();
-            Item.Product_Name=AddDetails.Product_Name;
+            Item.ProductName=AddDetails.ProductName;
             Item.Company=AddDetails.Company;
             Item.Ram=AddDetails.Ram;
             Item.Hardisk=AddDetails.Hardisk;

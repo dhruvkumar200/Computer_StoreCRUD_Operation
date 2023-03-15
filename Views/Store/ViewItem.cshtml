@@ -1,25 +1,49 @@
 @model Computer_Store.Entities.ItemDetail
-{
-    <table>
-        <thead>
-            <tr>
-                <th>Product Name</th>
-                <th>Company</th>
-                <th>Ram</th>
-              
-            </tr>
-        </thead>
-        <tbody>
-            
-            
-                <tr>
-                    <td>@Model.Product_Name</td>
-                    <td>@Model.Company</td>
-                    <td>@Model.Ram</td>
-                  
-                   
-                </tr>
-            
-        </tbody>
-    </table>
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Details</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha512-lQgbzihym+q3XJHbGKfoMN5NY6av94UxCTdD5j5RrIYrGzdWdtjKX9ArpCMZxEys+OtJ0+pG+HDTjw/bJyTgTQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Image</th>
+                            <td><img src="~/Uploads/@Model.Image" alt="No image found" class="img-fluid"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Company</th>
+                            <td>@Model.Company</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Hard Disk</th>
+                            <td>@Model.Hardisk</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">OS</th>
+                            <td>@Model.Os</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Type</th>
+                            <td>@Model.ProductType</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Description</th>
+                            <td>@Model.Description</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js" integrity="sha512-PO0BZiJivQsKj+TnlytUBpTnLq1JXs1sKx81nJnZscA2J31GzH4kb+ccG2f1FgicL9XpAhIeA1BC+ZwRsJMcPw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

@@ -28,7 +28,7 @@ public partial class StoreDBContext : DbContext
             entity.ToTable("ItemDetail");
 
             entity.Property(e => e.Company)
-                .HasMaxLength(10)
+                .HasMaxLength(20)
                 .IsFixedLength();
             entity.Property(e => e.Description)
                 .HasMaxLength(500)
@@ -41,11 +41,13 @@ public partial class StoreDBContext : DbContext
                 .HasMaxLength(10)
                 .IsFixedLength()
                 .HasColumnName("OS");
-            entity.Property(e => e.Product_Name)
+            entity.Property(e => e.ProductName)
                 .HasMaxLength(50)
-                .IsFixedLength()
-                .HasColumnName("Product_Name");
+                .IsFixedLength();
             entity.Property(e => e.ProductType)
+                .HasMaxLength(10)
+                .IsFixedLength();
+            entity.Property(e => e.Ram)
                 .HasMaxLength(10)
                 .IsFixedLength();
         });

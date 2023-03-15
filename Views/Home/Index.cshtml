@@ -1,32 +1,61 @@
 ﻿<div class="container">
   <div class="table-responsive">
     <table class="table table-striped">
+      <style>
+        {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Basic styles */
+        body {
+            font-family: sans-serif;
+            background-color: #f2f2f2;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: auto;
+        }
+      </style>
       <thead>
         <tr>
-          <th>Product Name</th>
+          <th>Image</th>
+          <th>ProductName</th>
           <th>Company</th>
           <th>Ram</th>
           <th>Hardisk</th>
-          <th>OS</th>
-          <th>Product Type</th>
-          <th>Description</th>
-          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         @foreach(var item in Model)
         {
           <tr>
-            <td><a asp-action="ViewItem" asp-controller="Store" asp-route-id="@item.Id">@item.Product_Name</a></td>
+            <td><img src="~/Uploads/@item.Image" class="img-fluid" alt="NO IMAGE FOUND"></td>
+            <td class="prod"><a asp-action="ViewItem" asp-controller="Store" asp-route-id="@item.Id">@item.ProductName</a></td>
             <td>@item.Company</td>
             <td>@item.Ram</td>
-            <td><img src="~/Uploads/@item.Image" class="img-fluid" alt="NO IMAGE FOUND"></td>
             <td>@item.Hardisk</td>
-            <td>@item.Os</td>
-            <td>@item.ProductType</td>
-            <td>@item.Description</td>
             <td>
-              @Html.ActionLink("Edit", "AddIt", "Store", new { item.Id, item.Company, item.Ram, item.Product_Name, item.Description, item.ProductType }, new { @class = "btn btn-primary edit-link" })
+              @Html.ActionLink("Edit", "Edit", "Store", new { item.Id, item.Company, item.Ram, item.ProductName, item.Description, item.ProductType }, new { @class = "btn btn-primary edit-link" })
               @Html.ActionLink("Delete", "Deleteitem", "Store", new { item.Id }, new { @class = "btn btn-danger delete-link" })
             </td>
           </tr>

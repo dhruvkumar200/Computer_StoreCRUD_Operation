@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Registration";
 }
-<div><H1>Add Items</H1></div>
+<div><H1>Edit Item</H1></div>
 @using (Html.BeginForm("AddInfo", "Store", FormMethod.Post, new {id="formRegistration",enctype="multipart/form-data"}))
 {
    @Html.HiddenFor(x=>x.Id);
